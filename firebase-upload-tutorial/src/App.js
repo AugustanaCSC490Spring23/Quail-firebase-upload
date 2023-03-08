@@ -8,12 +8,14 @@ import {
   list,
   getDownloadURL,
 } from "@firebase/storage";
+import "./App.css";
+import { app } from './firebase.js';
 
 function App() {
   const [imageUrl, setImageUrl] = useState("");
   const [filename, setFilename] = useState("");
   const [file, setFile] = useState(null);
-  const storage = getStorage();
+  const storage = getStorage(app);
 
 
   const handlePictureChange = (e) => {
@@ -49,7 +51,7 @@ function App() {
   };
   return (
     <div className="App">
-       Choose a picture:
+      <h1>Choose a picture:</h1>
       <br />
       <input type="file"  accept="image/png, image/jpeg, image/heic, image/jpg" onChange={handlePictureChange} />
       <br />
